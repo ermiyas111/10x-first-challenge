@@ -1,0 +1,49 @@
+:root{
+  --bg:#f4f4f7;
+  --panel:#ffffff;
+  --text:#0b1220;
+
+  /* Primary accents */
+  --accent:#3b82f6; /* blue */
+  --accent-2:#7c3aed; /* purple */
+
+  /* Keys */
+  --key:#e6e7ee; /* light gray */
+  --key-2:#f8fafc; /* off-white */
+
+  /* Operators */
+  --op-plus:#34d399; /* green */
+  --op-mul:#ff7ab6;  /* pink */
+  --op-div:#ffd166;  /* yellow */
+  --op-sub:#60a5fa;  /* light blue */
+
+  /* Functional */
+  --func:#d1d5db;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.calculator{width:320px;margin:48px auto;padding:16px;background:var(--panel);border-radius:12px;box-shadow:0 8px 24px rgba(11,18,32,0.08)}
+.display{padding:8px}
+#display{width:100%;font-size:28px;padding:12px;border-radius:8px;border:1px solid #e6e7ee;background:var(--key-2);text-align:right}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.btn{padding:14px 8px;font-size:18px;border-radius:8px;border:0;background:var(--key);cursor:pointer;color:var(--text);transition:transform .06s ease, box-shadow .08s ease}
+.btn:active{transform:translateY(1px)}
+
+/* Functional keys */
+.btn.func{background:var(--func)}
+
+/* Operator color variants using data-value for visual variety */
+.btn.op{color:#111}
+.btn.op[data-value="+"]{background:linear-gradient(180deg,var(--op-plus),#10b981);color:#fff}
+.btn.op[data-value="-"]{background:linear-gradient(180deg,var(--op-sub),#3b82f6);color:#fff}
+.btn.op[data-value="*"]{background:linear-gradient(180deg,var(--op-mul),#f472b6);color:#fff}
+.btn.op[data-value="/"]{background:linear-gradient(180deg,var(--op-div),#ffd166);color:#111}
+
+/* Equals gets a stronger accent */
+.equals{grid-column:3/4;background:linear-gradient(180deg,var(--accent-2),var(--accent));color:#fff;box-shadow:0 6px 18px rgba(59,130,246,0.18)}
+
+/* Hover and focus states */
+.btn:hover{filter:brightness(.98);box-shadow:0 6px 12px rgba(11,18,32,0.06)}
+.btn:focus{outline:2px solid rgba(59,130,246,0.15);outline-offset:2px}
+
+@media (max-width:360px){.calculator{width:94%;margin:24px}} 

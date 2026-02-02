@@ -1,0 +1,1 @@
+Since I faced some connection issues to the server, I added some fallback. And made the tenx server a first preference. Also added some privary and formatting rules.
